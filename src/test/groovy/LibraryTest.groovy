@@ -12,6 +12,6 @@ class LibraryTest extends Specification {
         def result = lib.someLibraryMethod()
 
         then:
-        result == true
+        result == false
     }
 }
