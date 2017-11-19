@@ -8,18 +8,22 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                sh './gradlew build'
             }
         }
         stage('Test') {
             steps {
                 //sh 'echo "Fail!"; exit 1'
-                sh 'echo "Success!"; exit 0'
+                //sh 'echo "Success!"; exit 0'
+                sh './gradlew check'
             }
         }
     }
     post {
         always {
             echo 'This will always run'
+            archive 'build/libs/**/*.jar'
+            junit 'build/test-results/**/*.xml'
         }
         success {
             echo 'This will run only if successful'
