@@ -8,7 +8,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-                sh './gradlew build'
+                sh './gradlew clean build'
             }
         }
         stage('Test') {
@@ -24,7 +24,7 @@ pipeline {
             }
         }
 
-        // ERROR: Test reports were found but none of them are new. Did leafNodes run?
+        //ERROR: Test reports were found but none of them are new. Did leafNodes run?
         //stage('Sanity check') {
         //    steps {
         //        input "Does the staging environment look ok?"
