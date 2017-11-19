@@ -24,11 +24,12 @@ pipeline {
             }
         }
 
-        stage('Sanity check') {
-            steps {
-                input "Does the staging environment look ok?"
-            }
-        }
+        // ERROR: Test reports were found but none of them are new. Did leafNodes run?
+        //stage('Sanity check') {
+        //    steps {
+        //        input "Does the staging environment look ok?"
+        //    }
+        //}
 
         stage('Deploy - Production') {
             steps {
